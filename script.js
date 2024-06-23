@@ -12,7 +12,7 @@ function initMap() {
 	var KPUSurreyLibrary = {lat: 49.1895, lng: -122.8488}; 
   map = new google.maps.Map(document.getElementById("map"), {
     center: KPUSurreyLibrary,
-    zoom: 10,
+    zoom: 7,
   });
   var marker = new google.maps.Marker({ 
           position: KPUSurreyLibrary, 
