@@ -30,43 +30,9 @@ function calculateDistance(mk1, mk2) {
       return d;
     }
 
- if (navigator.geolocation) {
-          navigator.geolocation.watchPosition(
-            (position) => {
-              const pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-              };
+ 
 
-              if (userMarker) {
-                userMarker.setPosition(pos);
-              } else {
-                userMarker = new google.maps.Marker({
-                  position: pos,
-                  map: map,
-                  title: "Your Location"
-                });
-              }
-
-              // Center the map on the user's position
-              map.setCenter(pos);
-
-              // Calculate the distance to KPU Surrey Library
-              const distance = calculateDistance(marker.getPosition(), userMarker.getPosition());
-              document.getElementById('distance').innerHTML = 
-                `Distance between your location and KPU Surrey Library is ${distance.toFixed(2)} km.`;
-            },
-            () => {
-              handleLocationError(true, map.getCenter());
-            }
-          );
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, map.getCenter());
-        }
-      }
-
- /* infoWindow = new google.maps.InfoWindow();
+ infoWindow = new google.maps.InfoWindow();
 
   const locationButton = document.createElement("button");
 
@@ -102,7 +68,7 @@ function calculateDistance(mk1, mk2) {
     }
   });
 }
-*/
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
